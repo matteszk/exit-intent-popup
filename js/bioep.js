@@ -16,6 +16,7 @@ window.bioEp = {
 	delay: 5,
 	showOnDelay: false,
 	cookieExp: 30,
+	showOnExit: true
 
 	// Object for handling cookies, taken from QuirksMode
 	// http://www.quirksmode.org/js/cookies.html
@@ -261,6 +262,7 @@ window.bioEp = {
 
 			// Load events
 			//load events of exit intent despite timeout
+			if(bioEp.showOnExit)
 			bioEp.loadEvents();
 
 			//set timeout to show popup
