@@ -25,6 +25,8 @@ window.bioEp = {
         '  		<input type="submit" value="Enviar" style="background-color: #FCDA05; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; color: #5F5101; cursor: pointer; width: 100%;">' +
         '  		<input type="hidden" name="token_rdstation" value="SEU_TOKEN_RD_STATION">' +
         '  		<input type="hidden" name="identificador" value="pagina-contato">' +
+        '  		<input type="hidden" id="client_id" name="client_id" value="">' +
+        '  		<input type="hidden" id="traffic_source" name="traffic_source" value="">' +
         '  		<input type="hidden" name="redirect_to" value="http://seusite.com.br/obrigado/">' +
         '		</form>' +
       	'	</div>' +
