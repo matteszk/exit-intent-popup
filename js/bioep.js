@@ -6,7 +6,6 @@ window.bioEp = {
 	shown: false,
 	overflowDefault: "visible",
 	transformDefault: "",
-
 	// Popup options
 	width: 680,
 	height: 680,
@@ -150,7 +149,7 @@ window.bioEp = {
 		// Add the background div
 		this.bgEl = document.createElement("div");
 		this.bgEl.id = "bio_ep_bg";
-		document.body.appendChild(this.bgEl);
+		//document.body.appendChild(this.bgEl);
 
 		// Add the popup
 		if(document.getElementById("bio_ep"))
