@@ -24,7 +24,9 @@ window.bioEp = {
       	'<input type="email" name="email" placeholder="E-mail" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; margin-right: 10px; padding: 10px 15px; font-size: 18px; color: #555555; width: 35%;">' +
       	'<input type="submit" value="Enviar" style="background-color: #FCDA05; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; width: 25%; color: #5F5101; cursor: pointer;">' +
       	'<input type="hidden" name="token_rdstation" value="SEU_TOKEN_RD_STATION">' +
-      	'<input type="hidden" name="identificador" value="pagina-contato">' +
+      	'<input type="hidden" name="identificador" value="popup">' +
+      	'<input type="hidden" id="client_id" name="client_id" value="">' +
+      	'<input type="hidden" id="traffic_source" name="traffic_source" value="">' +
       	'<input type="hidden" name="redirect_to" value="http://seusite.com.br/obrigado/">' +
     		'</form>' +
   			'</div>' +
@@ -72,6 +74,13 @@ window.bioEp = {
 		}
 	},
 
+
+	readRDCookies: function(){
+		  cookieTracking = JSON.parse(unescape(this.cookieManager.get('rdtrk')));
+			document.getElementById('client_id').value = cookieTracking.id;
+			document.getElementById('traffic_source').value = this.cookieManager.get('_trf.src');
+
+	},
 	// Handle the bioep_shown cookie
 	// If present and true, return true
 	// If not present or false, create and return false
@@ -121,6 +130,7 @@ window.bioEp = {
 		document.head.insertBefore(style, document.getElementsByTagName("style")[0]);
 	},
 
+
 	// Add the popup to the page
 	addPopup: function() {
 		// Add the background div
@@ -137,6 +147,8 @@ window.bioEp = {
 			this.popupEl.innerHTML = this.html;
 			document.body.appendChild(this.popupEl);
 		}
+		// Fill in cookies
+		this.readRDCookies();
 
 		// Add the close button
 		this.closeBtnEl = document.createElement("div");
