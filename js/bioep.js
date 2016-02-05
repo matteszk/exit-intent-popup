@@ -11,7 +11,7 @@ window.bioEp = {
 	width: 400,
 	height: 220,
 	html: '<div id="RDStationPopup">' +
-  			'<div id="RDStationPopupHeader" style="padding: 20px;">'
+  			'<div id="RDStationPopupHeader" style="padding: 20px;">' +
     		'<img src="https://rdstation-static.s3.amazonaws.com/images/landing_page/29783/offer-logo.png" alt="Capa do eBook" style="max-width: 35%; display: inline-block;">' +
 				'<hgroup style="max-width: 60%; display: inline-block; vertical-align: top;">' +
       	'<h1 style="color: #555555; font-family: sans-serif; text-transform: uppercase; font-size: 28px; line-height: 1.5em;">Neque porro quisquam est qui dolorem ipsum!</h1>' +
