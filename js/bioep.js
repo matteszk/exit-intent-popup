@@ -18,7 +18,7 @@ window.bioEp = {
         '  		<h2 style="color: #555555; font-family: sans-serif; font-size: 18px; line-height: 1.5em; font-weight: normal;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vulputate nunc a accumsan sollicitudin. Aliquam eleifend, nunc eu ultricies hendrerit, metus est tincidunt justo.</h2>' +
         '		</hgroup>' +
       	'	</div> ' +
-      	'	<div id="RDStationPopupForm" style="background-color: #5C3551; padding: 50px 20px;"> '
+      	'	<div id="RDStationPopupForm" style="background-color: #5C3551; padding: 50px 20px;"> ' +
         '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" style="margin: 0 auto; text-align: center;"> ' +
         '  		<input type="text" name="nome" placeholder="Nome" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; margin-bottom: 10px; width: 100%; color: #555555;">' +
         '  		<input type="email" name="email" placeholder="E-mail" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; margin-bottom: 10px; width: 100%; color: #555555;">' +
