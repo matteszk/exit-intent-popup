@@ -18,12 +18,12 @@ window.bioEp = {
         '		</hgroup>' +
       	'	</div> ' +
       	'	<div id="RDStationPopupForm" style="background-color: #5C3551; padding: 50px 20px;"> ' +
-        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" onsubmit="alert("Obrigado");" style="margin: 0 auto; text-align: center;"> ' +
+        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" onsubmit="alert(\'Obrigado\');" style="margin: 0 auto; text-align: center;"> ' +
         '  		<input type="text" name="nome" placeholder="Nome" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; width: 30%; color: #555555;">' +
         '  		<input type="email" name="email" placeholder="E-mail" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; width: 30%; color: #555555;">' +
         '  		<input type="submit" value="Enviar" style="background-color: #FCDA05; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; color: #5F5101; cursor: pointer; width: 20%;">' +
-        '  		<input type="hidden" name="token_rdstation" value="SEU_TOKEN_RD_STATION">' +
-        '  		<input type="hidden" name="identificador" value="62a359c9c43540b41d4fe5fe38dc9043	">' +
+        '  		<input type="hidden" name="identificador" value="popup">' +
+        '  		<input type="hidden" name="token_rdstation" value="62a359c9c43540b41d4fe5fe38dc9043	">' +
         '  		<input type="hidden" id="client_id" name="client_id" value="">' +
         '  		<input type="hidden" id="traffic_source" name="traffic_source" value="">' +
         '  		<input type="hidden" name="redirect_to" value="http://seusite.com.br/obrigado/">' +
