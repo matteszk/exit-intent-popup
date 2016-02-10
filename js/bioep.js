@@ -7,8 +7,8 @@ window.bioEp = {
 	overflowDefault: "visible",
 	transformDefault: "",
 	// Popup options
-	width: 680,
-	height: 680,
+	width: 630,
+	height: 1000,
 	html: '<div id="RDStationPopup" style="width: 100%;">' +
       	'	<div id="RDStationPopupHeader" style="padding: 20px;">' +
         '		<img src="https://rdstation-static.s3.amazonaws.com/images/landing_page/29783/offer-logo.png" alt="Capa do eBook" style="width: 100%; display: inline-block;">' +
@@ -18,12 +18,12 @@ window.bioEp = {
         '		</hgroup>' +
       	'	</div> ' +
       	'	<div id="RDStationPopupForm" style="background-color: #5C3551; padding: 50px 20px;"> ' +
-        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" style="margin: 0 auto; text-align: center;"> ' +
+        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" onsubmit="alert("Obrigado");" style="margin: 0 auto; text-align: center;"> ' +
         '  		<input type="text" name="nome" placeholder="Nome" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; margin-bottom: 10px; width: 100%; color: #555555;">' +
         '  		<input type="email" name="email" placeholder="E-mail" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; margin-bottom: 10px; width: 100%; color: #555555;">' +
         '  		<input type="submit" value="Enviar" style="background-color: #FCDA05; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; color: #5F5101; cursor: pointer; width: 100%;">' +
         '  		<input type="hidden" name="token_rdstation" value="SEU_TOKEN_RD_STATION">' +
-        '  		<input type="hidden" name="identificador" value="pagina-contato">' +
+        '  		<input type="hidden" name="identificador" value="62a359c9c43540b41d4fe5fe38dc9043	">' +
         '  		<input type="hidden" id="client_id" name="client_id" value="">' +
         '  		<input type="hidden" id="traffic_source" name="traffic_source" value="">' +
         '  		<input type="hidden" name="redirect_to" value="http://seusite.com.br/obrigado/">' +
@@ -90,7 +90,9 @@ window.bioEp = {
 
 	readRDCookies: function(){
 		  cookieTracking = JSON.parse(unescape(this.cookieManager.get('rdtrk')));
-			document.getElementById('client_id').value = cookieTracking.id;
+			if (cookieTracking){
+				document.getElementById('client_id').value = cookieTracking.id;
+			}
 			document.getElementById('traffic_source').value = this.cookieManager.get('_trf.src');
 
 	},
@@ -149,7 +151,7 @@ window.bioEp = {
 		// Add the background div
 		this.bgEl = document.createElement("div");
 		this.bgEl.id = "bio_ep_bg";
-		//document.body.appendChild(this.bgEl);
+		document.body.appendChild(this.bgEl);
 
 		// Add the popup
 		if(document.getElementById("bio_ep"))
@@ -178,7 +180,7 @@ window.bioEp = {
 		this.popupEl.style.display = "block";
 
 		// Handle scaling
-		this.scalePopup();
+		//this.scalePopup();
 
 		// Save body overflow value and hide scrollbars
 		this.overflowDefault = document.body.style.overflow;
@@ -305,8 +307,9 @@ window.bioEp = {
 
 			// Load events
 			//load events of exit intent despite timeout
-			if(bioEp.showOnExit)
-			bioEp.loadEvents();
+			if(bioEp.showOnExit){
+				bioEp.loadEvents();
+			}
 
 			//set timeout to show popup
 			setTimeout(function() {
