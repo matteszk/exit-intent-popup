@@ -79,7 +79,7 @@ window.bioEp = {
 			if (cookieTracking){
 				document.getElementById('client_id').value = cookieTracking.id;
 			}
-			document.getElementById('traffic_source').value = this.cookieManager.get('_trf.src');
+			document.getElementById('traffic_source').value = this.cookieManager.get('__trf.src');
 
 	},
 	// Handle the bioep_shown cookie
