@@ -7,7 +7,7 @@ window.bioEp = {
 	overflowDefault: "visible",
 	transformDefault: "",
 	// Popup options
-	width: 630,
+	width: '630px',
 	height: 'auto',
 	html: '<div id="RDStationPopup" style="width: 100%;">' +
       	'	<div id="RDStationPopupHeader" style="padding: 20px;">' +
@@ -18,7 +18,7 @@ window.bioEp = {
         '		</hgroup>' +
       	'	</div> ' +
       	'	<div id="RDStationPopupForm" style="background-color: #5C3551; padding: 50px 20px;"> ' +
-        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" onsubmit="alert(\'Obrigado\');" style="margin: 0 auto; text-align: center;"> ' +
+        '	<form action="https://www.rdstation.com.br/api/1.2/conversions" method="POST" onsubmit="alert(\'Obrigado!\');" style="margin: 0 auto; text-align: center;"> ' +
         '  		<input type="text" name="nome" placeholder="Nome" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; width: 30%; color: #555555;">' +
         '  		<input type="email" name="email" placeholder="E-mail" style="background-color: #FFFFFF; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; width: 30%; color: #555555;">' +
         '  		<input type="submit" value="Enviar" style="background-color: #FCDA05; border: none; font-family: sans-serif; border-radius: 2px; padding: 10px 15px; font-size: 18px; color: #5F5101; cursor: pointer; width: 20%;">' +
@@ -116,7 +116,7 @@ window.bioEp = {
 		// Base CSS styles for the popup
 		var css = document.createTextNode(
 			"#bio_ep_bg {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.3; z-index: 10001;}" +
-			"#bio_ep {display: none; position: fixed; width: " + this.width + "px; height: " + this.height + "px; font-family: 'Titillium Web', sans-serif; font-size: 16px; left: 50%; top: 50%; transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); background-color: #fff; box-shadow: 0px 1px 4px 0 rgba(0,0,0,0.5); z-index: 10002;}" +
+			"#bio_ep {display: none; position: fixed; width: " + this.width + "; height: " + this.height + "; font-family: 'Titillium Web', sans-serif; font-size: 16px; left: 50% !important; top: 50% !important; transform: translateX(-50%) translateY(-50%) !important; -webkit-transform: translateX(-50%) translateY(-50%) !important; -ms-transform: translateX(-50%) translateY(-50%) !important; background-color: #fff; box-shadow: 0px 1px 4px 0 rgba(0,0,0,0.5); z-index: 10002;}" +
 			"#bio_ep_close {position: absolute; left: 100%; margin: 0 0 0 -30px; width: 30px; padding: 8px 0; color: #fff; font-size: 12px; font-weight: bold; text-align: center; background-color: #5C3551; cursor: pointer;}" +
 		  + this.css
 		);
@@ -166,7 +166,7 @@ window.bioEp = {
 		this.popupEl.style.display = "block";
 
 		// Handle scaling
-		//this.scalePopup();
+			//this.scalePopup();
 
 		// Save body overflow value and hide scrollbars
 		this.overflowDefault = document.body.style.overflow;
@@ -295,8 +295,7 @@ window.bioEp = {
 			//load events of exit intent despite timeout
 			if(bioEp.showOnExit){
 				bioEp.loadEvents();
-			}
-
+      }
 			//set timeout to show popup
 			setTimeout(function() {
 				if(bioEp.showOnDelay)
