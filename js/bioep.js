@@ -1,7 +1,7 @@
 window.bioEp = {
 	// Private variables
 	bgEl: {},
-	closeBtnEl: {},
+	closeBtnEl: [],
 	shown: false,
 	overflowDefault: "visible",
 

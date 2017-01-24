@@ -26,6 +26,7 @@ You must also add HTML and CSS directly on the page, and supply the elements.
 ```html
 <head>
     <div id="exitIntent">
+        <div id="exitIntentOverlay"></div>
         <div>
             <div id="exitIntentClose"></div>    
             <h1>Don't go just yet!</h1>
@@ -38,22 +39,28 @@ You must also add HTML and CSS directly on the page, and supply the elements.
     <script type="text/javascript">
         bioEp.init({
             bgEl: document.getElementById("exitIntent"),
-            closeBtnEl: document.getElementById("exitIntent"),
+            closeBtnEl: [document.getElementById("exitIntentClose"), document.getElementById("exitIntentOverlay")],
             cookieExp: 0 //always show popup, which you will probably remove after initial testing! (see options)
         });
     </script>
 
     <style type="text/css">
-        #exitIntent {
-            background: black;
+        #exitIntent {          
+          position: fixed;
             height: 100%;
-            left: 0;
-            opacity: 0.5;
-            position: fixed;
-            top: 0;
             width: 100%;
+            top: 0;
+            left: 0;
         }
-        //close button, probably in the upper right of the conent...
+        //     
+        #exitIntent {
+          position: fixed;
+          height: 100%;
+          width: 100%;
+          background: black;
+          opacity: 0.5;          
+        }
+        // close button, probably in the upper right of the conent...
         #exitIntentClose {
             position: absolute;
             right: 1em;
@@ -77,7 +84,7 @@ All options must be added to the init function as an object.
 Name            | Type        | Default | Description
 --------------- | ----------- | ------- | -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **bgEl**        | HTMLElement | null    | The element to show when the popup activates. Element toggles between display: block and, assumedly, display: none which you have set in your CSS, etc.
-**closeBtnEl**  | HTMLElement | null    | The close button for the popup
+**closeBtnEl**  | Array | null    | Array of HTMLElements that close that close the popup, example uses the close button as well as the 50% black overlay to close.
 **delay**       | integer     | 5       | The time, in seconds, until the popup activates and begins watching for exit intent. If showOnDelay is set to true, this will be the time until the popup shows.
 **showOnDelay** | boolean     | false   | If true, the popup will show after the delay option time. If false, popup will show when a visitor moves their cursor above the document window, showing exit intent.
 **cookieExp**   | integer     | 30      | The number of days to set the cookie for. A cookie is used to track if the popup has already been shown to a specific visitor. If the popup has been shown, it will not show again until the cookie expires. A value of 0 will always show the popup.
