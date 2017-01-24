@@ -84,6 +84,11 @@ window.bioEp = {
 
 		// Set body overflow back to default to show scrollbars
 		document.body.style.overflow = this.overflowDefault;
+
+		// Handle the popup close button
+		for (var l = this.closeBtnEl.length - 1; l >= 0; l--) {
+			this.removeEvent(this.closeBtnEl[l], "click", bioEp.hidePopup.bind(this));
+		}
 	},
 
 	// Event listener initialisation for all browsers
@@ -92,6 +97,14 @@ window.bioEp = {
 			obj.addEventListener(event, callback, false);
 		else if (obj.attachEvent)
 			obj.attachEvent("on" + event, callback);
+	},
+
+	// Event listener initialisation for all browsers
+	removeEvent: function(obj, event, callback) {
+		if (obj.removeEventListener)
+			obj.removeEventListener(event, callback, false);
+		else if (obj.detachEvent)
+			obj.detachEvent("on" + event, callback);
 	},
 
 	// Load event listeners for the popup
@@ -107,10 +120,9 @@ window.bioEp = {
 		});
 
 		// Handle the popup close button
-		this.addEvent(this.closeBtnEl, "click", function() {
-			bioEp.hidePopup();
-		});
-
+		for (var l = this.closeBtnEl.length - 1; l >= 0; l--) {
+			this.addEvent(this.closeBtnEl[l], "click", bioEp.hidePopup.bind(this));
+		}
 	},
 
 	// Set user defined options for the popup
@@ -133,7 +145,6 @@ window.bioEp = {
 		if (typeof opts !== 'undefined')
 			this.setOptions(opts);
 
-
 		// Once the DOM has fully loaded
 		this.domReady(function() {
 			// Handle the cookie
@@ -148,4 +159,4 @@ window.bioEp = {
 			}, bioEp.delay * 1000);
 		});
 	}
-}
+};
