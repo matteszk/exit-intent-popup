@@ -111,6 +111,7 @@ window.ExitIntent = window.bioEp = {
 	// Load event listeners for the popup
 	loadEvents: function() {
 		// Track mouseout event on document
+		var topExitOnly = this.topExitOnly;
 		this.addEvent(document, "mouseout", function(e) {
 			e = e ? e : window.event;
 			var from = e.relatedTarget || e.toElement;
@@ -118,7 +119,7 @@ window.ExitIntent = window.bioEp = {
 			// Reliable, works on mouse exiting window and user switching active program
 			if (!from || (from.nodeName === "HTML")) {
 				//only showpopup going to browser top bar
-				if (this.topExitOnly && e.clientY > 0) {
+				if (topExitOnly && e.clientY > 0) {
 					return;
 				}
 				bioEp.showPopup();
@@ -134,7 +135,7 @@ window.ExitIntent = window.bioEp = {
 	// Set user defined options for the popup
 	setOptions: function(opts) {
 		this.bgEl = opts.bgEl;
-		this.topExitOnly = opts.topExitOnly || false;
+		this.topExitOnly = opts.topExitOnly || true;
 		this.closeBtnEl = opts.closeBtnEl;
 		this.delay = (typeof opts.delay === 'undefined') ? this.delay : opts.delay;
 		this.showOnDelay = (typeof opts.showOnDelay === 'undefined') ? this.showOnDelay : opts.showOnDelay;
