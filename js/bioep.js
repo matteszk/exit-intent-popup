@@ -1,4 +1,4 @@
-window.bioEp = {
+window.ExitIntent = window.bioEp = {
 	// Private variables
 	bgEl: {},
 	closeBtnEl: [],
@@ -8,6 +8,7 @@ window.bioEp = {
 	delay: 5,
 	showOnDelay: false,
 	cookieExp: 30,
+	topExitOnly: true,
 
 	// Object for handling cookies, taken from QuirksMode
 	// http://www.quirksmode.org/js/cookies.html
@@ -115,8 +116,13 @@ window.bioEp = {
 			var from = e.relatedTarget || e.toElement;
 
 			// Reliable, works on mouse exiting window and user switching active program
-			if (!from || from.nodeName === "HTML")
+			if (!from || (from.nodeName === "HTML")) {
+				//only showpopup going to browser top bar
+				if (this.topExitOnly && e.clientY > 0) {
+					return;
+				}
 				bioEp.showPopup();
+			}
 		});
 
 		// Handle the popup close button
@@ -128,6 +134,7 @@ window.bioEp = {
 	// Set user defined options for the popup
 	setOptions: function(opts) {
 		this.bgEl = opts.bgEl;
+		this.topExitOnly = opts.topExitOnly || false;
 		this.closeBtnEl = opts.closeBtnEl;
 		this.delay = (typeof opts.delay === 'undefined') ? this.delay : opts.delay;
 		this.showOnDelay = (typeof opts.showOnDelay === 'undefined') ? this.showOnDelay : opts.showOnDelay;
